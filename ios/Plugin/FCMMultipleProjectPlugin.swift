@@ -20,13 +20,13 @@ public class FCMMultipleProjectPlugin: CAPPlugin {
         ])
     }
 
-    @objc func add(_ call CAPPluginCall){
+    @objc func add(_ call: CAPPluginCall){
 
 
       call.resolve()
     }
 
-    @objc func clean(_ call CAPPluginCall){
+    @objc func clean(_ call: CAPPluginCall){
 
       call.resolve()
     }
