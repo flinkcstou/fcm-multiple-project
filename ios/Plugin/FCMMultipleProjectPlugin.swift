@@ -7,16 +7,18 @@ import Capacitor
  */
 @objc(FCMMultipleProjectPlugin)
 public class FCMMultipleProjectPlugin: CAPPlugin {
-    private let implementation = FCMMultipleProject()
+    private let fcmMultipleProject = FCMMultipleProject()
 
+    
     override public func load() {
-
+        fcmMultipleProject.create()
     }
+    
 
     @objc func echo(_ call: CAPPluginCall) {
         let value = call.getString("value") ?? ""
         call.resolve([
-            "value": implementation.echo(value)
+            "value": fcmMultipleProject.echo(value)
         ])
     }
 

@@ -1,6 +1,6 @@
 import Foundation
 
-class FirebaseConfig
+class FirebaseConfig: Codable
 {
     static var FC_APPLICATION_NAME : String = "firebaseAppName";
     static var FC_PROJECT_ID : String = "projectId";
@@ -21,9 +21,6 @@ class FirebaseConfig
     private var storageBucket : String;
     private var projectId : String;
 
-    init(){
-    // todo nabu
-    }
 
     init(_ firebaseAppName : String, _ apiKey : String, _ applicationId : String, _ databaseUrl : String, _ gaTrackingId : String, _ gcmSenderId : String, _ storageBucket : String, _ projectId : String)
     {
@@ -43,7 +40,7 @@ class FirebaseConfig
     func setFirebaseAppName(_ firebaseAppName : String) -> FirebaseConfig?
     {
         self.firebaseAppName = firebaseAppName;
-        return self.this;
+        return self;
     }
     func getApiKey() -> String?
     {
@@ -52,7 +49,7 @@ class FirebaseConfig
     func setApiKey(_ apiKey : String) -> FirebaseConfig?
     {
         self.apiKey = apiKey;
-        return self.this;
+        return self;
     }
     func getApplicationId() -> String?
     {
@@ -61,7 +58,7 @@ class FirebaseConfig
     func setApplicationId(_ applicationId : String) -> FirebaseConfig?
     {
         self.applicationId = applicationId;
-        return self.this;
+        return self;
     }
     func getDatabaseUrl() -> String?
     {
@@ -70,7 +67,7 @@ class FirebaseConfig
     func setDatabaseUrl(_ databaseUrl : String) -> FirebaseConfig?
     {
         self.databaseUrl = databaseUrl;
-        return self.this;
+        return self;
     }
     func getGaTrackingId() -> String?
     {
@@ -79,7 +76,7 @@ class FirebaseConfig
     func setGaTrackingId(_ gaTrackingId : String) -> FirebaseConfig?
     {
         self.gaTrackingId = gaTrackingId;
-        return self.this;
+        return self;
     }
     func getGcmSenderId() -> String?
     {
@@ -88,7 +85,7 @@ class FirebaseConfig
     func setGcmSenderId(_ gcmSenderId : String) -> FirebaseConfig?
     {
         self.gcmSenderId = gcmSenderId;
-        return self.this;
+        return self;
     }
     func getStorageBucket() -> String?
     {
@@ -97,7 +94,7 @@ class FirebaseConfig
     func setStorageBucket(_ storageBucket : String) -> FirebaseConfig?
     {
         self.storageBucket = storageBucket;
-        return self.this;
+        return self;
     }
     func getProjectId() -> String?
     {
@@ -106,6 +103,6 @@ class FirebaseConfig
     func setProjectId(_ projectId : String) -> FirebaseConfig?
     {
         self.projectId = projectId;
-        return self.this;
+        return self;
     }
 }
