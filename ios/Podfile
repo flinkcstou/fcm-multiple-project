@@ -10,11 +10,13 @@ end
 target 'Plugin' do
   capacitor_pods
   # Add your Pods here
+  pod 'Firebase'
   pod 'Firebase/Messaging'
 end
 
 target 'PluginTests' do
   capacitor_pods
   # Add your Pods here
+  pod 'Firebase'
   pod 'Firebase/Messaging'
 end
