@@ -1,6 +1,6 @@
 import Foundation
 
-class FirebaseConfig: Codable
+class FirebaseConfig: NSObject, Codable
 {
     static var FC_APPLICATION_NAME : String = "firebaseAppName";
     static var FC_PROJECT_ID : String = "projectId";
@@ -12,32 +12,35 @@ class FirebaseConfig: Codable
     static var FC_GA_TRACKING_ID : String = "gaTrackingId";
 
 
-    private var firebaseAppName : String;
-    private var apiKey : String;
-    private var applicationId : String;
-    private var databaseUrl : String;
-    private var gaTrackingId : String;
-    private var gcmSenderId : String;
-    private var storageBucket : String;
-    private var projectId : String;
+    private var firebaseAppName : String = "";
+    private var apiKey : String = "";
+    private var applicationId : String = "";
+    private var databaseUrl : String = "";
+    private var gaTrackingId : String = "";
+    private var gcmSenderId : String = "";
+    private var storageBucket : String = "";
+    private var projectId : String = "";
+    
+    
 
 
-    init(_ firebaseAppName : String, _ apiKey : String, _ applicationId : String, _ databaseUrl : String, _ gaTrackingId : String, _ gcmSenderId : String, _ storageBucket : String, _ projectId : String)
-    {
-        self.firebaseAppName = firebaseAppName;
-        self.apiKey = apiKey;
-        self.applicationId = applicationId;
-        self.databaseUrl = databaseUrl;
-        self.gaTrackingId = gaTrackingId;
-        self.gcmSenderId = gcmSenderId;
-        self.storageBucket = storageBucket;
-        self.projectId = projectId;
-    }
+//    init(_ firebaseAppName : String, _ apiKey : String, _ applicationId : String, _ databaseUrl : String, _ gaTrackingId : String, _ gcmSenderId : String, _ storageBucket : String, _ projectId : String)
+//    {
+//        self.firebaseAppName = firebaseAppName;
+//        self.apiKey = apiKey;
+//        self.applicationId = applicationId;
+//        self.databaseUrl = databaseUrl;
+//        self.gaTrackingId = gaTrackingId;
+//        self.gcmSenderId = gcmSenderId;
+//        self.storageBucket = storageBucket;
+//        self.projectId = projectId;
+//    }
+    
     func getFirebaseAppName() -> String?
     {
         return self.firebaseAppName;
     }
-    func setFirebaseAppName(_ firebaseAppName : String) -> FirebaseConfig?
+    func setFirebaseAppName(_ firebaseAppName : String) -> FirebaseConfig
     {
         self.firebaseAppName = firebaseAppName;
         return self;
@@ -46,7 +49,7 @@ class FirebaseConfig: Codable
     {
         return self.apiKey;
     }
-    func setApiKey(_ apiKey : String) -> FirebaseConfig?
+    func setApiKey(_ apiKey : String) -> FirebaseConfig
     {
         self.apiKey = apiKey;
         return self;
@@ -55,7 +58,7 @@ class FirebaseConfig: Codable
     {
         return self.applicationId;
     }
-    func setApplicationId(_ applicationId : String) -> FirebaseConfig?
+    func setApplicationId(_ applicationId : String) -> FirebaseConfig
     {
         self.applicationId = applicationId;
         return self;
@@ -64,7 +67,7 @@ class FirebaseConfig: Codable
     {
         return self.databaseUrl;
     }
-    func setDatabaseUrl(_ databaseUrl : String) -> FirebaseConfig?
+    func setDatabaseUrl(_ databaseUrl : String) -> FirebaseConfig
     {
         self.databaseUrl = databaseUrl;
         return self;
@@ -73,7 +76,7 @@ class FirebaseConfig: Codable
     {
         return self.gaTrackingId;
     }
-    func setGaTrackingId(_ gaTrackingId : String) -> FirebaseConfig?
+    func setGaTrackingId(_ gaTrackingId : String) -> FirebaseConfig
     {
         self.gaTrackingId = gaTrackingId;
         return self;
@@ -82,7 +85,7 @@ class FirebaseConfig: Codable
     {
         return self.gcmSenderId;
     }
-    func setGcmSenderId(_ gcmSenderId : String) -> FirebaseConfig?
+    func setGcmSenderId(_ gcmSenderId : String) -> FirebaseConfig
     {
         self.gcmSenderId = gcmSenderId;
         return self;
@@ -91,7 +94,7 @@ class FirebaseConfig: Codable
     {
         return self.storageBucket;
     }
-    func setStorageBucket(_ storageBucket : String) -> FirebaseConfig?
+    func setStorageBucket(_ storageBucket : String) -> FirebaseConfig
     {
         self.storageBucket = storageBucket;
         return self;
@@ -100,9 +103,13 @@ class FirebaseConfig: Codable
     {
         return self.projectId;
     }
-    func setProjectId(_ projectId : String) -> FirebaseConfig?
+    func setProjectId(_ projectId : String) -> FirebaseConfig
     {
         self.projectId = projectId;
         return self;
+    }
+    
+    func build(){
+        
     }
 }

@@ -12,11 +12,11 @@ class FileStream {
         collect = firebaseConfigs
             .filter {(value)-> Bool in
                 
-                !value.getFirebaseAppName()!.contains(firebaseConfig.getFirebaseAppName()!)
+                return !value.getFirebaseAppName()!.contains(firebaseConfig.getFirebaseAppName()!)
                 
             }
             .filter{(value)-> Bool in
-                !value.getProjectId()!.contains(firebaseConfig.getProjectId()!)
+                return !value.getProjectId()!.contains(firebaseConfig.getProjectId()!)
                 
             }
         
@@ -28,13 +28,14 @@ class FileStream {
     
     static func write(_ firebaseConfigs: Array<FirebaseConfig> = []){
         
-        let jsonString = FileStream.json(from: firebaseConfigs)
-        FileStream.writeToFile(jsonString!)
+        let jsonString = FileStream.json(firebaseConfigs)
+        FileStream.writeToFile(jsonString)
     }
     
     
     
-    static func writeToFile(_ apiResponse: String = "") {
+    static func writeToFile(_ apiResponse: String = FCMStatic.EMPTY_ARRAY) {
+        // todo nabu add clean
         
         do {
             let filePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent(FCMStatic.FILE_NAME)
@@ -58,7 +59,7 @@ class FileStream {
     
     static func readFromFile() -> String{
         
-        var result:String = "";
+        var result:String = FCMStatic.EMPTY_ARRAY;
         
         do{
             let filePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent(FCMStatic.FILE_NAME)
@@ -73,7 +74,7 @@ class FileStream {
     }
     
     
-    static func jsonDecode(_ jsonString:String = "")-> Array<FirebaseConfig>{
+    static func jsonDecode(_ jsonString:String = FCMStatic.EMPTY_ARRAY)-> Array<FirebaseConfig>{
         
         var firebaseConfigs:Array<FirebaseConfig> = [];
         
@@ -91,13 +92,29 @@ class FileStream {
     }
     
     
-    static func json(from object:Any) -> String? {
+    static func json(_ object: Array<FirebaseConfig>) -> String {
         
-        guard let data = try? JSONSerialization.data(withJSONObject: object, options: []) else {
-            return FCMStatic.EMPTY
+        do{
+            
+    
+            let data = try JSONEncoder().encode(object)
+            
+//            let arr = Array(arrayLiteral: object)
+//
+//            let isValid = JSONSerialization.isValidJSONObject(arr)
+//
+//            let data = try JSONSerialization.data(withJSONObject: object, options: [])
+//
+            return String(data: data, encoding: String.Encoding.utf8)!
+            
+        } catch{
+            
+            print(error)
+            return FCMStatic.EMPTY;
+            
         }
-        return String(data: data, encoding: String.Encoding.utf8)
         
+     
         
     }
     
