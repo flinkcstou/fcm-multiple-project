@@ -11,6 +11,7 @@ const FCMMultipleProject = registerPlugin<FCMMultipleProjectPlugin>(
   },
 );
 export * from './multiple/storage-local.service';
+export * from './multiple/FirebaseConfig';
 export * from './multiple/FileStream';
 export * from './multiple/FCMMultipleProjectI';
 export * from './definitions';
