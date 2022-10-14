@@ -1,6 +1,6 @@
 {
   "name": "fcm-multiple-project",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Firebase messaging multiple project. It send push notification from multiple project firebase.",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
