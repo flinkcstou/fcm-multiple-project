@@ -20,16 +20,7 @@ export interface FirebaseTokenError {
   firebaseAppName: string;
 }
 
-//todo nabu remove it
-export enum StorageNameEnum {
-  STORAGE_LOCAL = 'LOCAL_',
-  STORAGE_LOCAL_PROFILE = 'LOCAL_PROFILE_',
 
-}
-
-export enum StorageLocalKeyEnum {
-  FCM_APPS = 'FCM_APPS',
-}
 
 export const FCM_EVENT_TOKEN_SUCCESS = 'multipleToken';
 export const FCM_EVENT_TOKEN_ERROR = 'multipleTokenError';

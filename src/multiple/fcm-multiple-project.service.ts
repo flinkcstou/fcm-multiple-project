@@ -8,11 +8,10 @@ import { getMessaging, getToken } from 'firebase/messaging';
 import type { FCMMultipleProjectI } from './FCMMultipleProjectI';
 import { FileStream } from './FileStream';
 import type { FirebaseConfig } from './FirebaseConfig';
-import { StorageLocalService } from './storage-local.service';
 
 export class FcmMultipleProjectService implements FCMMultipleProjectI {
 
-  private fileStream: FileStream = new FileStream(new StorageLocalService());
+  private fileStream: FileStream = new FileStream();
 
   constructor() {
     console.error('init FcmMultipleProjectService');

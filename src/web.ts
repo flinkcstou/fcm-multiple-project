@@ -1,16 +1,9 @@
-import { WebPlugin, WebPluginConfig } from '@capacitor/core';
+import { WebPlugin } from '@capacitor/core';
 
 import type { FCMMultipleProjectPlugin } from './definitions';
 import type { FCMMultipleProjectI } from './multiple/FCMMultipleProjectI';
-import type {
-  FirebaseConfig,
-  FirebaseToken,
-  FirebaseTokenError,
-} from './multiple/FirebaseConfig';
-import {
-  FCM_EVENT_TOKEN_ERROR,
-  FCM_EVENT_TOKEN_SUCCESS,
-} from './multiple/FirebaseConfig';
+import type { FirebaseConfig, FirebaseToken, FirebaseTokenError } from './multiple/FirebaseConfig';
+import { FCM_EVENT_TOKEN_ERROR, FCM_EVENT_TOKEN_SUCCESS } from './multiple/FirebaseConfig';
 import { FcmMultipleProjectService } from './multiple/fcm-multiple-project.service';
 
 export class FCMMultipleProjectWeb extends WebPlugin implements FCMMultipleProjectPlugin {
